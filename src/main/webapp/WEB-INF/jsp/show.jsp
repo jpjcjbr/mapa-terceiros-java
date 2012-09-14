@@ -19,7 +19,7 @@
 
 	<h1><c:out value="${terceiro.nome}" /></h1>
 	<p><img src="<c:url value="/assets/images/note2.png"/>" class="noteImg"/><c:out value="${endereco_formatado}" /></p>
-	<p><img src="<c:url value="/assets/images/mail.png"/>" class="mailImg"/><a href="mailto:<c:out value="${terceiro.emails[0]}" />"><c:out value="${terceiro.email}" /></a></p>
+	<p><img src="<c:url value="/assets/images/mail.png"/>" class="mailImg"/><a href="mailto:<c:out value="${terceiro.emails[0]}" />"><c:out value="${terceiro.emails[0]}" /></a></p>
 	
 	<h1>Mapa</h1>
 	<div id="ImgMapa">
