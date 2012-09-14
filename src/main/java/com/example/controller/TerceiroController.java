@@ -69,7 +69,7 @@ public class TerceiroController {
 			
 			Terceiro terceiro = exchange.getBody();
 			
-			List resultadoPesquisa = mapsController.search(terceiro.getEndereco().getEnderecoCompleto());
+			List resultadoPesquisa = mapsController.search(terceiro.getEnderecos().get(0).getEnderecoCompleto());
 			
 			if(resultadoPesquisa.size() > 0)
 			{
