@@ -42,8 +42,8 @@
 			<tr>
 				<td><c:out value="${status.count}" /></td>
 				<td><a href="<c:url value="/mvc/terceiros/"/><c:out value="${terceiro.id}" />"><c:out value="${terceiro.nome}" /></a></td>
-				<td><c:out value="${terceiro.email}" /></td>
-				<td><c:out value="${terceiro.endereco.enderecoCompleto}" /></td>
+				<td><c:out value="${terceiro.emails[0]}" /></td>
+				<td><c:out value="${terceiro.enderecos[0].enderecoCompleto}" /></td>
 			</tr>
 		</c:forEach>
 	</table>

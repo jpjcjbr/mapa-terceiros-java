@@ -1,17 +1,24 @@
 package com.example.model;
 
+import java.util.List;
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Terceiro {
 
 	private long id;
 	
 	private String nome;
 	
-	private Endereco endereco;
-	
-	private String email;
+	private List<String> emails;
 	
 	private String identificacao;
-
+	
+	private List<Endereco> enderecos;
+	
+	private List<Telefone> telefones;
+	
 	public long getId() {
 		return id;
 	}
@@ -28,31 +35,35 @@ public class Terceiro {
 		this.nome = nome;
 	}
 
-	public Endereco getEndereco() {
-		if(endereco == null)
-		{
-			endereco = new Endereco();
-		}
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getIdentificacao() {
 		return identificacao;
 	}
 
 	public void setIdentificacao(String identificacao) {
 		this.identificacao = identificacao;
+	}
+
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
+	}
+
+	public List<Telefone> getTelefones() {
+		return telefones;
+	}
+
+	public void setTelefones(List<Telefone> telefones) {
+		this.telefones = telefones;
+	}
+
+	public List<String> getEmails() {
+		return emails;
+	}
+
+	public void setEmails(List<String> emails) {
+		this.emails = emails;
 	}
 }

@@ -4,9 +4,9 @@ public class RequestInformation {
 
 	private String grant_type;
 	
-	private String client_id;
+	private String app_id;
 	
-	private String client_secret;
+	private String app_secret;
 	
 	private String redirect_uri;
 	
@@ -18,22 +18,6 @@ public class RequestInformation {
 
 	public void setGrant_type(String grant_type) {
 		this.grant_type = grant_type;
-	}
-
-	public String getClient_id() {
-		return client_id;
-	}
-
-	public void setClient_id(String client_id) {
-		this.client_id = client_id;
-	}
-
-	public String getClient_secret() {
-		return client_secret;
-	}
-
-	public void setClient_secret(String client_secret) {
-		this.client_secret = client_secret;
 	}
 
 	public String getRedirect_uri() {
@@ -50,5 +34,21 @@ public class RequestInformation {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public String getApp_id() {
+		return app_id;
+	}
+
+	public void setApp_id(String app_id) {
+		this.app_id = app_id;
+	}
+
+	public String getApp_secret() {
+		return app_secret;
+	}
+
+	public void setApp_secret(String app_secret) {
+		this.app_secret = app_secret;
 	}
 }

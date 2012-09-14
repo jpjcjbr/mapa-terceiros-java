@@ -18,7 +18,8 @@ import com.example.model.RequestInformation;
 @Controller
 public class OauthController {
 
-	private static final String URL_CALLBACK = "http://mapa-terceiros.herokuapp.com/mvc/oauth/vpsa/callback";
+//	private static final String URL_CALLBACK = "http://mapa-terceiros.herokuapp.com/mvc/oauth/vpsa/callback";
+	private static final String URL_CALLBACK = "http://localhost:8080/mapa-terceiros-java/mvc/oauth/vpsa/callback";
 
 	@Autowired
 	private RestTemplate restTemplate;
@@ -33,7 +34,7 @@ public class OauthController {
 		
 		HttpEntity<RequestInformation> httpEntity = new HttpEntity<RequestInformation>(getRequestInformation(request.getParameter("code")), headers);
 		
-		ResponseEntity<Authorization> exchange = restTemplate.exchange("https://vpsa-oauth-server.herokuapp.com/oauth/token", HttpMethod.POST, httpEntity, Authorization.class,  (Object)null);
+		ResponseEntity<Authorization> exchange = restTemplate.exchange("https://www.vpsa.com.br/apps/oauth/token", HttpMethod.POST, httpEntity, Authorization.class,  (Object)null);
 		request.getSession().setAttribute("access_token", exchange.getBody().getAccess_token());	    	
 			    		
 		return "redirect:/mvc" + request.getSession().getAttribute("url_before_auth");
@@ -44,8 +45,8 @@ public class OauthController {
 		
 		requestInformation.setCode(requestToken);
 		requestInformation.setRedirect_uri(URL_CALLBACK);
-		requestInformation.setClient_secret("592344d14c9f5d737b0ec1c8191c6e9df5351b4c434e1dc331ce00625f1a3ffa");
-		requestInformation.setClient_id("5053319cd93a4b7a7c000007");
+		requestInformation.setApp_secret("3463798f6a4c10b1b998634f7c3b3fff713362abaf6153bd428b0219e6144e1d");
+		requestInformation.setApp_id("50533a04d93a4b7a7c00000d");
 		requestInformation.setGrant_type("authorization_code");
 		
 		return requestInformation;
@@ -56,7 +57,7 @@ public class OauthController {
 	{
 		String urlAuth = "https://www.vpsa.com.br/apps/oauth/authorization?";
 		urlAuth += "response_type=code&";
-		urlAuth += "app_id=5053319cd93a4b7a7c000007&";
+		urlAuth += "app_id=50533a04d93a4b7a7c00000d&";
 		urlAuth += "redirect_uri=" + URL_CALLBACK;
 			    		
 		return "redirect:" + urlAuth;
