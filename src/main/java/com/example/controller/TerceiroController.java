@@ -39,7 +39,7 @@ public class TerceiroController {
 			
 			HttpEntity<String> httpEntity = new HttpEntity<String>(headers);
 			
-			String url = "https://www.vpsa.com.br/api/terceiros?token=" + request.getSession().getAttribute("access_token");
+			String url = "https://www.vpsa.com.br/apps/api/terceiros?token=" + request.getSession().getAttribute("access_token");
 			ResponseEntity<Terceiro[]> exchange = restTemplate.exchange(url, HttpMethod.GET, httpEntity, Terceiro[].class,  (Object)null);
 			
 			map.put("terceiros", exchange.getBody());
@@ -63,7 +63,7 @@ public class TerceiroController {
 			
 			HttpEntity<String> httpEntity = new HttpEntity<String>(headers);
 			
-			String url = "https://www.vpsa.com.br/api/terceiros/" + idTerceiro + "?token=" + request.getSession().getAttribute("access_token");
+			String url = "https://www.vpsa.com.br/apps/api/terceiros/" + idTerceiro + "?token=" + request.getSession().getAttribute("access_token");
 			
 			ResponseEntity<Terceiro> exchange = restTemplate.exchange(url, HttpMethod.GET, httpEntity, Terceiro.class,  (Object)null);
 			
